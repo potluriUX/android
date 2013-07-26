@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/home_as_up" android:title="DISPLAY_HOME_AS_UP"></item>
+    <item android:id="@+id/show_home" android:title="DISPLAY_SHOW_HOME"></item>
+    <item android:id="@+id/show_title" android:title="DISPLAY_SHOW_TITLE"></item>
+    <item android:id="@+id/use_logo" android:title="DISPLAY_USE_LOGO"></item>
+    
+</menu>
