@@ -2,8 +2,7 @@ package com.ravi.worldnews;
 
 
 
-
-
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
@@ -51,7 +50,7 @@ public class WebViewActivity extends Activity {
 		Bundle b = getIntent().getExtras();
 		String value = b.getString("key");
 		webView.setWebViewClient(yourWebClient);
-		webView.loadUrl("http://" + value);
+		webView.loadUrl( value);
 		/*Bundle b = getIntent().getExtras();
 
 		String value = b.getString("key");

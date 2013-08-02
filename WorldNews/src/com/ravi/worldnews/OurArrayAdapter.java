@@ -50,7 +50,8 @@ public class OurArrayAdapter extends ArrayAdapter{
         holder.txtTitle.setText(Character.toUpperCase(weather.get_country().charAt(0)) + weather.get_country().substring(1) + " - "+weather.get_name());
         }
         else{
-        	holder.txtTitle.setText(weather.get_name());
+        	//holder.txtTitle.setText(weather.get_name());
+        	holder.txtTitle.setText(weather.get_name()  + " - "+ Character.toUpperCase(weather.get_country().charAt(0))+ weather.get_country().substring(1));
         }
         //+" " +weather._country set text is different its displayname. 
         //filtering and other aspects work based on adapter. we pass the tostring method return value to webviewactivity
