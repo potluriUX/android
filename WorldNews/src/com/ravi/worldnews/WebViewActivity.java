@@ -27,7 +27,7 @@ public class WebViewActivity extends Activity {
 		webView.getSettings().setJavaScriptEnabled(true);
 		Bundle b = getIntent().getExtras();
 		String value = b.getString("key");
-		String value2 = b.getString("key2");
+		String value2 = b.getString("key2");//we will revert a commit
 		  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 	            // Show the Up button in the action bar.
 			  //getActionBar().hide();
