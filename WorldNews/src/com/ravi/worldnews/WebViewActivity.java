@@ -59,13 +59,7 @@ public class WebViewActivity extends Activity {
 
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu)
-	{
-	        MenuInflater inflater = getMenuInflater();
 	        inflater.inflate(R.menu.main3, menu);
-	        return true;////////////////////////////////////////////////////////change to true
-	}
 	@Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(event.getAction() == KeyEvent.ACTION_DOWN){

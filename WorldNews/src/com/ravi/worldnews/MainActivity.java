@@ -102,7 +102,7 @@ public class MainActivity extends Activity {
 				WebLinks w = db.getLink(selection);
 
 				b.putString("key", w.get_link());
-
+				b.putString("key2", w.get_name());
 				intent.putExtras(b);
 
 				startActivity(intent);
