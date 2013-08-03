@@ -24,10 +24,15 @@ public class WebViewActivity extends Activity {
 		setContentView(R.layout.webview);
 
 		webView = (WebView) findViewById(R.id.webView1);
-		//webView.getSettings().setJavaScriptEnabled(true);
+		webView.getSettings().setJavaScriptEnabled(true);
+		Bundle b = getIntent().getExtras();
+		String value = b.getString("key");
+		String value2 = b.getString("key2");
 		  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 	            // Show the Up button in the action bar.
-	            getActionBar().setDisplayHomeAsUpEnabled(true);
+			  //getActionBar().hide();
+			  getActionBar().setTitle(value2);
+	            getActionBar().setDisplayHomeAsUpEnabled(false);
 	        }
 
 		WebViewClient yourWebClient = new WebViewClient()
@@ -47,8 +52,7 @@ public class WebViewActivity extends Activity {
 		};
 
 		
-		Bundle b = getIntent().getExtras();
-		String value = b.getString("key");
+	
 		webView.setWebViewClient(yourWebClient);
 		webView.loadUrl( value);
 		/*Bundle b = getIntent().getExtras();
@@ -59,7 +63,7 @@ public class WebViewActivity extends Activity {
 
 	}
 
-	        inflater.inflate(R.menu.main3, menu);
+
 	@Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(event.getAction() == KeyEvent.ACTION_DOWN){
@@ -77,15 +81,7 @@ public class WebViewActivity extends Activity {
         }
         return super.onKeyDown(keyCode, event);
     }
-	 @Override
-	    public boolean onOptionsItemSelected(MenuItem item) {
-	        switch (item.getItemId()) {
-	        case android.R.id.home:
-	            NavUtils.navigateUpFromSameTask(this);
-	            return true;
-	        }
-	        return super.onOptionsItemSelected(item);
-	    }
+	
 
 
 }
