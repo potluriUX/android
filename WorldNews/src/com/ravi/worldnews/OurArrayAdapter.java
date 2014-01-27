@@ -10,13 +10,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class OurArrayAdapter extends ArrayAdapter{
+public class OurArrayAdapter extends ArrayAdapter{//need arrayadapter for filterning and making listview dynamically
 
     Context context;
     int layoutResourceId;   
     WebLinks data[] = null;
    
-    public OurArrayAdapter(Context context, int layoutResourceId, WebLinks[] data) {
+    public OurArrayAdapter(Context context, int layoutResourceId, WebLinks[] data) {//layoutResourceIdis layout filename
         super(context, layoutResourceId, data);
         this.layoutResourceId = layoutResourceId;
         this.context = context;
@@ -34,12 +34,12 @@ public class OurArrayAdapter extends ArrayAdapter{
             row = inflater.inflate(layoutResourceId, parent, false);
            
             holder = new WeatherHolder();
-            holder.imgIcon = (ImageView)row.findViewById(R.id.imgIcon);
+            holder.imgIcon = (ImageView)row.findViewById(R.id.imgIcon);//in list_item.xml layout
            
-            holder.txtTitle = (TextView)row.findViewById(R.id.txtTitle);
+            holder.txtTitle = (TextView)row.findViewById(R.id.txtTitle);//R.id.txtTitle in list_item.xml layout
            
-            row.setTag(holder);
-        }
+            row.setTag(holder);//set data so we can retrieve it later on click of listitem click
+        }//this whole class seems a generic array adapter for a list view.
         else
         {
             holder = (WeatherHolder)row.getTag();
@@ -62,7 +62,7 @@ public class OurArrayAdapter extends ArrayAdapter{
    
     static class WeatherHolder
     {
-        ImageView imgIcon;
+        ImageView imgIcon;//this is imageview type
        
         TextView txtTitle;
     }

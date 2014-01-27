@@ -37,21 +37,21 @@ public class MainActivity extends Activity {
 		final Context context = this;
 
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_main);//R.layout.layout_file_name 
 		final DatabaseHandler db = new DatabaseHandler(this);
 		Bundle b = getIntent().getExtras();
 		List<WebLinks> links = null;
-		if(b != null){
-			String countryname = b.getString("countryname");
+		if(b != null){//search by country means the country  page not home page.
+			String countryname = b.getString("countryname");//getting country name
 			nameOfCountry = countryname;
 			
 			links = db.getLinksByCountry(countryname.toLowerCase());
-			LinearLayout ll = (LinearLayout)findViewById(R.id.linearLayout1);
-			TextView tv = (TextView)findViewById(R.id.country_text);   
-			tv.setText("Searching By Country: " + countryname + "\nPress HOME for all Countries");
+			LinearLayout ll = (LinearLayout)findViewById(R.id.linearLayout1);// android:id="@+id/linearLayout1"
+			//TextView tv = (TextView)findViewById(R.id.country_text);   //android:id="@+id/country_text"
+			//tv.setText("Searching By Country: " + countryname + "\nPress HOME for all Countries");
 
 		}
-		else{
+		else{//no data passed means home page of all news papaers.
 			links = db.getAllLinks();
 			LinearLayout ll = (LinearLayout)findViewById(R.id.linearLayout1);
 			TextView tv = (TextView)findViewById(R.id.country_text);   
@@ -72,10 +72,10 @@ public class MainActivity extends Activity {
 
 		/*final StableArrayAdapter adapter = new StableArrayAdapter(this,
 				android.R.layout.simple_list_item_1, list);!!!!!!important*/
-		final ArrayAdapter<WebLinks> adapter2 = new ArrayAdapter<WebLinks>(this,
-				android.R.layout.simple_list_item_1, list2);
+		/*final ArrayAdapter<WebLinks> adapter2 = new ArrayAdapter<WebLinks>(this,
+				android.R.layout.simple_list_item_1, list2);*/
 		final OurArrayAdapter adapter3 = new OurArrayAdapter(this,
-				R.layout.list_item, data);
+				R.layout.list_item, data);//we pass layout file also to the adapter
 		listview.setAdapter(adapter3);
 
 		button = (Button) findViewById(R.id.buttonUrl);
@@ -116,7 +116,7 @@ public class MainActivity extends Activity {
 			public void onTextChanged(CharSequence cs, int arg1, int arg2,
 					int arg3) {
 				// When user changed the Text
-				adapter3.getFilter().filter(cs);
+				adapter3.getFilter().filter(cs);//ourarrayadapter adapter3
 			}
 
 			@Override
