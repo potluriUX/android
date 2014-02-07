@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -37,7 +38,7 @@ public class OurArrayAdapter extends ArrayAdapter{//need arrayadapter for filter
             holder.imgIcon = (ImageView)row.findViewById(R.id.imgIcon);//in list_item.xml layout
            
             holder.txtTitle = (TextView)row.findViewById(R.id.txtTitle);//R.id.txtTitle in list_item.xml layout
-           
+           //holder.fav = (Button)row.findViewById(R.id.fav);//R.id.txtTitle in list_item.xml layout
             row.setTag(holder);//set data so we can retrieve it later on click of listitem click
         }//this whole class seems a generic array adapter for a list view.
         else
@@ -46,17 +47,26 @@ public class OurArrayAdapter extends ArrayAdapter{//need arrayadapter for filter
         }
     
         WebLinks weather = (WebLinks)getItem(position);
+        weather.id = weather.get_name();
+        weather.context = context;
         if(weather._countryFilteringFlag){
         holder.txtTitle.setText(Character.toUpperCase(weather.get_country().charAt(0)) + weather.get_country().substring(1) + " - "+weather.get_name());
         }
         else{
-        	//holder.txtTitle.setText(weather.get_name());
+        	//holder.txtTitle.setText(weather.get_name()); we set tile to the listitem.
         	holder.txtTitle.setText(weather.get_name()  + " - "+ Character.toUpperCase(weather.get_country().charAt(0))+ weather.get_country().substring(1));
         }
         //+" " +weather._country set text is different its displayname. 
         //filtering and other aspects work based on adapter. we pass the tostring method return value to webviewactivity
+        
         holder.imgIcon.setImageResource(R.drawable.arrow_icon);
-      
+        
+        
+        
+       // holder.fav.setOnClickListener(weather.listener1);
+        holder.txtTitle.setOnClickListener(weather.listener2);
+		//title.setOnClickListener(video.listener2);
+		//thumb.setOnClickListener(video.listener2);
         return row;
     }
    
@@ -65,6 +75,7 @@ public class OurArrayAdapter extends ArrayAdapter{//need arrayadapter for filter
         ImageView imgIcon;//this is imageview type
        
         TextView txtTitle;
+        Button fav;
     }
 }
 

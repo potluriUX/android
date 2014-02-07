@@ -3,6 +3,7 @@ package com.ravi.worldnews;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -14,13 +15,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	 
     // All Static variables
     // Database Version
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
  
     // Database Name
     private static final String DATABASE_NAME = "linksManager";
  
     // Contacts table name
     private static final String TABLE_CONTACTS = "links";
+    private static final String TABLE_FAV = "fav";
  
     // Contacts Table Columns names
     private static final String KEY_ID = "id";
@@ -39,8 +41,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_CONTACTS + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
                 + KEY_LINK + " TEXT," + KEY_COUNTRY+ " TEXT)";
+        String CREATE_CONTACTS_TABLE2 = "CREATE TABLE " + TABLE_FAV + "("
+                + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
+                + KEY_LINK + " TEXT," + KEY_COUNTRY+ " TEXT)";
        
         db.execSQL(CREATE_CONTACTS_TABLE);
+        db.execSQL(CREATE_CONTACTS_TABLE2);
        // addLink(new WebLinks("Google", "www.google.com", "usa"), db); //only http:// is added in webview
      		createData(db);
 		
@@ -53,7 +59,29 @@ public class DatabaseHandler extends SQLiteOpenHelper {
       
     }
  
-   
+    public void addFav(WebLinks link) {
+        
+   SQLiteDatabase db = this.getWritableDatabase();
+        
+        ContentValues values = new ContentValues();
+        values.put(KEY_NAME, link.get_name()); // Contact Name
+        values.put(KEY_LINK, link.get_link()); // Contact Phone Number
+        values.put(KEY_COUNTRY, link.get_country()); 
+        //Log.d("Name: ", "asdf");
+        // Inserting Row
+        
+        
+        //Log.d("Name: ", "asdf");
+        // Inserting Row
+        db.insert(TABLE_FAV, null, values);
+        
+    }
+    // Deleting single fav
+   	public void deleteFav(int id) {
+   	    SQLiteDatabase db = this.getWritableDatabase();
+   	    db.delete(TABLE_FAV, KEY_ID + " = ?", new String[] { String.valueOf(id) });
+   	    db.close();
+   	}
 		
 	
 
@@ -65,6 +93,31 @@ public class DatabaseHandler extends SQLiteOpenHelper {
  
         // Create tables again
         onCreate(db);
+    }
+    public List<WebLinks> getAllFavs() {
+        List<WebLinks> linkList = new ArrayList<WebLinks>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_FAV;
+     
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+       
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+            	
+                WebLinks link = new WebLinks();
+                link.set_id(Integer.parseInt(cursor.getString(0)));
+                link.set_name(cursor.getString(1));
+                link.set_link(cursor.getString(2));
+                link.set_country(cursor.getString(3));
+                // Adding contact to list
+                linkList.add(link);
+            } while (cursor.moveToNext());
+        }
+     
+        // return contact list
+        return linkList;
     }
     public List<WebLinks> getAllLinks() {
         List<WebLinks> linkList = new ArrayList<WebLinks>();

@@ -67,6 +67,13 @@ public class MainActivity extends Activity {
 			list2.add(cn);
 
 		}
+		links = db.getAllFavs();
+for (WebLinks cn : links) {
+			
+			/*list.add(cn.get_name());*/
+			Log.d("favname" , cn.get_name());
+
+		}
 		data = (WebLinks[])list2.toArray(new WebLinks[0]);
 		final ListView listview = (ListView) findViewById(R.id.listView1);
 
