@@ -28,12 +28,12 @@ public class WebViewActivity extends Activity {
 		Bundle b = getIntent().getExtras();
 		String value = b.getString("key");
 		String value2 = b.getString("key2");
-		  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+		/*  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 	            // Show the Up button in the action bar.
 			  //getActionBar().hide();
 			  getActionBar().setTitle(value2);
 	            getActionBar().setDisplayHomeAsUpEnabled(false);
-	        }
+	        }*/
 
 		WebViewClient yourWebClient = new WebViewClient()
 		{

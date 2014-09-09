@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -24,7 +30,9 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ListView;
-
+import com.google.android.gms.ads.*;
+import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
+import com.google.android.gms.ads.doubleclick.PublisherAdView;
 @SuppressLint("NewApi")
 public class MainActivity extends Activity {
 
@@ -32,12 +40,38 @@ public class MainActivity extends Activity {
 	private TextView text;
 	private EditText inputSearch;
 	private String nameOfCountry;
+	InterstitialAd interstitial;
 
 	public void onCreate(Bundle savedInstanceState) {
 		final Context context = this;
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);//R.layout.layout_file_name 
+		
+		 interstitial = new InterstitialAd(MainActivity.this);
+	        // Insert the Ad Unit ID
+	        interstitial.setAdUnitId("ca-app-pub-3730266544385182/7453002796");
+	       AdView adView =   (AdView)this.findViewById(R.id.adView);
+	        AdRequest adRequest = new AdRequest.Builder()
+	       // .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+	        .build();
+	     //   adView.setAdSize(AdSize.BANNER);
+	        //adView.setAdUnitId("ca-app-pub-3730266544385182/1506030791");ca-app-pub-3730266544385182/1506030791
+	       
+	       // AdView adView = new AdView(this);
+	       adView.loadAd(adRequest);
+	        // Load ads into Interstitial Ads
+	        //interstitial.loadAd(adRequest);
+	        interstitial.loadAd(adRequest);
+	        
+	        // Prepare an Interstitial Ad Listener
+	        interstitial.setAdListener(new AdListener() {
+	            public void onAdLoaded() {
+	                // Call displayInterstitial() function
+	                displayInterstitial();
+	            }
+	        });
+		
 		final DatabaseHandler db = new DatabaseHandler(this);
 		Bundle b = getIntent().getExtras();
 		List<WebLinks> links = null;
@@ -141,7 +175,12 @@ for (WebLinks cn : links) {
 
 	}
 
-
+	  public void displayInterstitial() {
+	        // If Ads are loaded, show Interstitial else show nothing.
+	        if (interstitial.isLoaded()) {
+	            interstitial.show();
+	        }
+	    }
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
