@@ -2,6 +2,9 @@ package com.ravi.worldnews;
 
 
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Build;
@@ -25,6 +28,15 @@ public class WebViewActivity extends Activity {
 
 		webView = (WebView) findViewById(R.id.webView1);
 		webView.getSettings().setJavaScriptEnabled(true);
+		   AdView adView =   (AdView)this.findViewById(R.id.adView2);
+	        AdRequest adRequest = new AdRequest.Builder()
+	       // .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+	        .build();
+	     //   adView.setAdSize(AdSize.BANNER);
+	        //adView.setAdUnitId("ca-app-pub-3730266544385182/1506030791");ca-app-pub-3730266544385182/1506030791
+	       
+	       // AdView adView = new AdView(this);
+	       adView.loadAd(adRequest);
 		Bundle b = getIntent().getExtras();
 		String value = b.getString("key");
 		String value2 = b.getString("key2");

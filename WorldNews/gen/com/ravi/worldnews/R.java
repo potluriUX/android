@@ -417,6 +417,7 @@ containing a value of this type.
     }
     public static final class id {
         public static final int adView=0x7f070015;
+        public static final int adView2=0x7f070026;
         public static final int book_now=0x7f070010;
         public static final int btn=0x7f070025;
         public static final int buttonUrl=0x7f07001c;
@@ -438,8 +439,8 @@ containing a value of this type.
         public static final int linearLayout1=0x7f070014;
         public static final int listView1=0x7f070018;
         public static final int match_parent=0x7f07000c;
-        public static final int menu_exit=0x7f070027;
-        public static final int menu_home=0x7f070028;
+        public static final int menu_exit=0x7f070028;
+        public static final int menu_home=0x7f070029;
         public static final int monochrome=0x7f070013;
         public static final int none=0x7f070000;
         public static final int normal=0x7f070001;
@@ -455,7 +456,7 @@ containing a value of this type.
         public static final int textUrl2=0x7f07001a;
         public static final int txtTitle=0x7f070022;
         public static final int use_logo=0x7f070020;
-        public static final int webView1=0x7f070026;
+        public static final int webView1=0x7f070027;
         public static final int wrap_content=0x7f07000d;
     }
     public static final class integer {

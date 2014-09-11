@@ -3,6 +3,13 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
+     <com.google.android.gms.ads.AdView
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/adView2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    ads:adUnitId="ca-app-pub-3730266544385182/8929735991"
+    ads:adSize="BANNER"/>
 <WebView  
     android:id="@+id/webView1"
     android:layout_width="fill_parent"
