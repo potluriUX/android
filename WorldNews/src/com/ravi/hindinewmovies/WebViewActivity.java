@@ -1,9 +1,12 @@
-package com.ravi.worldnews;
+package com.ravi.hindinewmovies;
 
 
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+
+
+
 
 import android.annotation.SuppressLint;
 import android.app.Activity;

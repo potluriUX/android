@@ -10,6 +10,13 @@
     android:layout_height="wrap_content"
     ads:adUnitId="ca-app-pub-3730266544385182/8929735991"
     ads:adSize="BANNER"/>
+
+      <TextView
+          android:id="@+id/country_text"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:text="Hit Back button or Hit on Title on top to go to home" />
+  
 <WebView  
     android:id="@+id/webView1"
     android:layout_width="fill_parent"

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ravi.worldnews"
-    android:versionCode="8"
-    android:versionName="1.6"
+    package="com.ravi.hindinewmovies"
+    android:versionCode="1"
+    android:versionName="1.0"
      >
 <uses-permission android:name="android.permission.INTERNET" />
  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -12,7 +12,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/sicon"
         android:label="@string/app_name"
        
       
@@ -22,22 +22,22 @@
          <activity android:name="com.google.android.gms.ads.AdActivity"
           android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
         <activity
-            android:name=".WebViewActivity"
+            android:name="com.ravi.hindinewmovies.WebViewActivity"
              android:label="@string/app_name"
-              android:parentActivityName="com.ravi.worldnews.MainActivity"
+              android:parentActivityName="com.ravi.hindinewmovies.MainActivity"
              
               >
        
              
            </activity>
         <activity
-            android:name=".SecondMainActivity"
+            android:name="com.ravi.hindinewmovies.SecondMainActivity"
             android:label="@string/by_country"
-             android:parentActivityName="com.ravi.worldnews.MainActivity"
+             android:parentActivityName="com.ravi.hindinewmovies.MainActivity"
             android:theme="@style/AppTheme"
              />
         <activity
-            android:name="com.ravi.worldnews.MainActivity"
+            android:name="com.ravi.hindinewmovies.MainActivity"
             android:label="@string/app_name" 
              android:theme="@style/AppTheme"
              android:launchMode="singleTop"

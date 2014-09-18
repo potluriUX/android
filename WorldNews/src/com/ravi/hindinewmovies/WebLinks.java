@@ -1,4 +1,4 @@
-package com.ravi.worldnews;
+package com.ravi.hindinewmovies;
 
 import android.content.Context;
 import android.content.Intent;
