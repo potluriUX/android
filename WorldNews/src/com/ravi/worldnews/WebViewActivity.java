@@ -7,6 +7,8 @@ import com.google.android.gms.ads.AdView;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
@@ -19,15 +21,15 @@ import android.webkit.WebViewClient;
 
 public class WebViewActivity extends Activity {
 
-	private WebView webView;
+	//private WebView webView;
 	@SuppressLint("NewApi")
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.webview);
 
-		webView = (WebView) findViewById(R.id.webView1);
-		webView.getSettings().setJavaScriptEnabled(true);
+		//webView = (WebView) findViewById(R.id.webView1);
+	//	webView.getSettings().setJavaScriptEnabled(true);
 		   AdView adView =   (AdView)this.findViewById(R.id.adView2);
 	        AdRequest adRequest = new AdRequest.Builder()
 	       // .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
@@ -40,6 +42,10 @@ public class WebViewActivity extends Activity {
 		Bundle b = getIntent().getExtras();
 		String value = b.getString("key");
 		String value2 = b.getString("key2");
+		String videoId = "Fee5vbFLYM4";
+		Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:"+value.trim())); 
+		intent.putExtra("VIDEO_ID", value); 
+		startActivity(intent); 
 		/*  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 	            // Show the Up button in the action bar.
 			  //getActionBar().hide();
@@ -65,8 +71,8 @@ public class WebViewActivity extends Activity {
 
 		
 	
-		webView.setWebViewClient(yourWebClient);
-		webView.loadUrl( value);
+	//	webView.setWebViewClient(yourWebClient);
+	//	webView.loadUrl( value);
 		/*Bundle b = getIntent().getExtras();
 
 		String value = b.getString("key");
@@ -82,12 +88,12 @@ public class WebViewActivity extends Activity {
             switch(keyCode)
             {
             case KeyEvent.KEYCODE_BACK:
-                if(webView.canGoBack() == true){
-                	webView.goBack();
-                }else{
-                    finish();
-                }
-                return true;
+        //      if(webView.canGoBack() == true){
+         //       	webView.goBack();
+              //  }else{
+           //         finish();
+             //   }
+           //     return true;
             }
 
         }
