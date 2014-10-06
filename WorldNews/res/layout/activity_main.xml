@@ -23,7 +23,7 @@ android:layout_height="wrap_content"
     <EditText android:id="@+id/inputSearch"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:hint="Type Year or Movie Name.."
+        android:hint="Type Year or Movie Name or Actor Name.."
         android:inputType="textVisiblePassword"/>
     
      <ListView android:id="@+id/listView1" android:layout_width="fill_parent"
