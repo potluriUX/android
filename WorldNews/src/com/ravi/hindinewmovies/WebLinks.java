@@ -1,4 +1,4 @@
-package com.ravi_manasa.kismet;
+package com.ravi.hindinewmovies;
 
 import android.content.Context;
 import android.content.Intent;

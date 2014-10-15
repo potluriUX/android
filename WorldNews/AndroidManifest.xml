@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ravi_manasa.kismet"
-    android:versionCode="48"
-    android:versionName="2.2"
+    package="com.ravi.hindinewmovies"
+    android:versionCode="11"
+    android:versionName="1.3"
      >
 <uses-permission android:name="android.permission.INTERNET" />
  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -12,7 +12,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/micon1"
+        android:icon="@drawable/sicon"
         android:label="@string/app_name"
        
       
@@ -22,22 +22,22 @@
          <activity android:name="com.google.android.gms.ads.AdActivity"
           android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
         <activity
-            android:name="com.ravi_manasa.kismet.WebViewActivity"
+            android:name="com.ravi.hindinewmovies.WebViewActivity"
              android:label="@string/app_name"
-              android:parentActivityName="com.ravi_manasa.kismet.MainActivity"
+              android:parentActivityName="com.ravi.hindinewmovies.MainActivity"
              
               >
        
              
            </activity>
         <activity
-            android:name="com.ravi_manasa.kismet.SecondMainActivity"
+            android:name="com.ravi.hindinewmovies.SecondMainActivity"
             android:label="@string/by_country"
-             android:parentActivityName="com.ravi_manasa.kismet.MainActivity"
+             android:parentActivityName="com.ravi.hindinewmovies.MainActivity"
             android:theme="@style/AppTheme"
              />
         <activity
-            android:name="com.ravi_manasa.kismet.MainActivity"
+            android:name="com.ravi.hindinewmovies.MainActivity"
             android:label="@string/app_name" 
              android:theme="@style/AppTheme"
              android:launchMode="singleTop"

@@ -1,8 +1,12 @@
-package com.ravi_manasa.kismet;
+package com.ravi.hindinewmovies;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 
 
 
@@ -63,7 +67,15 @@ public class SecondMainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.secondactivity);
 		final DatabaseHandler db = new DatabaseHandler(this);
-		
+		   AdView adView =   (AdView)this.findViewById(R.id.adView);
+	        AdRequest adRequest = new AdRequest.Builder()
+	       // .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+	        .build();
+	     //   adView.setAdSize(AdSize.BANNER);
+	        //adView.setAdUnitId("ca-app-pub-3730266544385182/1506030791");ca-app-pub-3730266544385182/1506030791
+	       
+	       // AdView adView = new AdView(this);
+	       adView.loadAd(adRequest);
 		List<WebLinks> links = null;
 		
 		

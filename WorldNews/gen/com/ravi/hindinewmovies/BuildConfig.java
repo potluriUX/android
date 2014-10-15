@@ -1,5 +1,5 @@
 /** Automatically generated file. DO NOT MODIFY */
-package com.ravi_manasa.kismet;
+package com.ravi.hindinewmovies;
 
 public final class BuildConfig {
     public final static boolean DEBUG = true;

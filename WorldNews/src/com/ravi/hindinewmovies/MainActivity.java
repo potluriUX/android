@@ -1,4 +1,4 @@
-package com.ravi_manasa.kismet;
+package com.ravi.hindinewmovies;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,6 +33,7 @@ import android.widget.ListView;
 import com.google.android.gms.ads.*;
 import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
 import com.google.android.gms.ads.doubleclick.PublisherAdView;
+
 
 
 
@@ -201,7 +202,7 @@ for (WebLinks cn : links) {
 		}
 
 		else{
-		//	inflater.inflate(R.menu.main, menu);// home in menu main.xml
+			inflater.inflate(R.menu.main, menu);// home in menu main.xml
 		}
 		return true;////////////////////////////////////////////////////////change to true
 	}
